@@ -14,5 +14,4 @@
     "ssl": "true",
     "dialect": "postgres"
   }
-  }
 }
