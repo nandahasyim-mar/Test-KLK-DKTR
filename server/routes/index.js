@@ -9,7 +9,7 @@ router.post('/login', UserController.login)
 router.post('/register', UserController.register)
 
 
-// router.use(authentication)
+router.use(authentication)
 
 
 // Product
