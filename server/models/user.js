@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const  { hashPassword } = require('../helpers/index')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -34,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     number_phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       validate: {
         isNumeric: {
@@ -55,6 +56,11 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {
+    hooks: {
+      beforeCreate(user) {
+        user.password = hashPassword(user.password)
+      }
+    },
     sequelize,
     modelName: 'User',
   });
