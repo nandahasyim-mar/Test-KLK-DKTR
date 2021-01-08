@@ -15,7 +15,7 @@ app.use(router)
 app.use(errorHandler)
 
 app.get('/', (req, res) => {
-  res.send({ message: 'Klik Dokter'})
+  res.send({ message: 'Halooooooooooooo' })
 })
 
 app.listen(port, () => {
